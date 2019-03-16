@@ -11,3 +11,4 @@ Selain membandingkan nilai akurasi, kami juga akan menganalisis apakah ketiga al
 
 Untuk proposal nya dapat dilihat disini:
 https://docs.google.com/document/d/1UJ4t5Rh5MLHERC38V_hAOrPU_NJ_5VuUEX1sJglmJYc
+
