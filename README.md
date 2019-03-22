@@ -9,6 +9,9 @@ Hipotesis kami adalah Stacking Classifier akan meningkatkan akurasi dibandingkan
 
 Selain membandingkan nilai akurasi, kami juga akan menganalisis apakah ketiga algoritma tersebut cocok untuk dijadikan base algorithm dalam pembuatan model untuk kasus kepopuleran topik di media sosial.
 
-Untuk proposal nya dapat dilihat disini:
+Untuk proposal nya dapat dilihat di sini:
 https://docs.google.com/document/d/1UJ4t5Rh5MLHERC38V_hAOrPU_NJ_5VuUEX1sJglmJYc
+
+Progress1 dapat dilihat di sini:
+https://docs.google.com/document/d/1YNkCD9ZAFSOIGls4WNVRsJyXWpFv-WfkfCKo2_y38aw/edit?usp=sharing
 
