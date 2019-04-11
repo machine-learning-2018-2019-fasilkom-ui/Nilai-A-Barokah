@@ -171,7 +171,7 @@ class C45v2back:
         selected_gain = 0.0
         selected_count_less_eq = 0
         selected_count_greater = 0
-        for i in range(len(unique_edge)):
+        for i in range(len(unique_edge)-1):
             current_edge = unique_edge[i]
 
             curr_result = self.calculateGainRationNumeric(XY, current_edge, epx)

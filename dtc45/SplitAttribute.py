@@ -1,5 +1,3 @@
-from threading import Lock, Thread
-lock = Lock()
 import math
 import time
 import numpy as np
@@ -18,8 +16,7 @@ class SplitAttribute:
         self.selected_gain_ratio = -1.0
 
     def doSplit(self):
-        numOfCurrAttr = self.currentData[:, :-1].shape[0]
-        threads = []
+        numOfCurrAttr = self.currentData[:, :-1].shape[1]
 
         for i in range(numOfCurrAttr):
             currAttrName = self.currentData[0, i]
@@ -28,25 +25,15 @@ class SplitAttribute:
 
             desc = self.attributes_info[currAttrName]
             XY = self.currentData[1:, :]
-            threads.append(Thread(target=self.gainRatio, args=(XY, self.curr_target, desc['data_type'], self.currentData[0, i], i,)))
-            threads[-1].start()
-            #self.gainRatio(XY, self.curr_target, desc['data_type'], self.currentData[0, i], i)
-            print("Done calculating gain ratio fitur:" + currAttrName + " in " + str(start - time.time()))
+            self.gainRatio(XY, desc['data_type'], self.currentData[0, i], i)
+            #print("Done calculating gain ratio fitur:" + currAttrName + " in " + str(start - time.time()))
 
-        for thread in threads:
-            """
-            Waits for threads to complete before moving on with the main
-            script.
-            """
-            thread.join()
-
-    def gainRatio(self, XY, target, data_type, attr_name, attr_idx):
+    def gainRatio(self, XY, data_type, attr_name, attr_idx):
         if (data_type == 0):
             # TODO implementation
             return
         elif (data_type == 1):
-            gain, split_info, edge_splitter = self.gainRatioNumeric(XY, target)
-            lock.acquire()
+            gain, split_info, edge_splitter = self.gainRatioNumeric(XY)
             if (split_info == 0.0):
                 gain_ratio = 0.0
             else:
@@ -59,14 +46,12 @@ class SplitAttribute:
                 self.selected_gain = gain
                 self.selected_split_info = split_info
                 self.selected_gain_ratio = gain_ratio
-            lock.release()
 
-    def gainRatioNumeric(self, XY, target):
+    def gainRatioNumeric(self, XY):
         #print("calculateGainRationNumeric ")
-        # calculate entropy(X)
         unique_edge = np.unique(XY[:, 0].astype(np.float64), return_counts=False)
         px = []
-        for i in target:
+        for i in self.curr_target:
             px.append(XY[np.where(XY[:, 1].astype(np.float64) == i)].shape[0] / XY.shape[0])
         epx = self.entropy(px)
         #print("epx " + str(epx) + " px " + str(px))
