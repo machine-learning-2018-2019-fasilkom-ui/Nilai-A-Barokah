@@ -15,3 +15,6 @@ https://docs.google.com/document/d/1UJ4t5Rh5MLHERC38V_hAOrPU_NJ_5VuUEX1sJglmJYc
 Progress1 dapat dilihat di sini:
 https://docs.google.com/document/d/1YNkCD9ZAFSOIGls4WNVRsJyXWpFv-WfkfCKo2_y38aw/edit?usp=sharing
 
+Progress2 dapat dilihat di sini:
+https://drive.google.com/file/d/1vV8X13R2e58Zg3KJ8xfNhAGRa-hi7LT8/view?usp=sharing
+
